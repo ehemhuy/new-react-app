@@ -1,35 +1,29 @@
-const CACHE_NAME = "version-1";
-const urlsToCache = [ 'index.html', 'offline.html' ];
+const huyCache = "ehemhuy";
+const assets = [
+  "index.html",
+  "offline.html"
+];
 
-const self = this;
-
-// Install SW
-self.addEventListener('install', (event) => {
-    event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then((cache) => {
-                console.log('Opened cache');
-
-                return cache.addAll(urlsToCache);
-            })
-    )
+const self = this
+self.addEventListener("install", installEvent => {
+  installEvent.waitUntil(
+    caches.open(huyCache).then(cache => {
+      cache.addAll(assets);
+    })
+  );
 });
 
-// Listen for requests
-self.addEventListener('fetch', (event) => {
-    event.respondWith(
-        caches.match(event.request)
-            .then(() => {
-                return fetch(event.request) 
-                    .catch(() => caches.match('offline.html'))
-            })
-    )
+self.addEventListener("fetch", fetchEvent => {
+  fetchEvent.respondWith(
+    caches.match(fetchEvent.request).then(res => {
+      return res || fetch(fetchEvent.request)
+       .catch(() => caches.match('index.html'))
+    })
+  );
 });
-
-// Activate the SW
 self.addEventListener('activate', (event) => {
     const cacheWhitelist = [];
-    cacheWhitelist.push(CACHE_NAME);
+    cacheWhitelist.push(huyCache);
 
     event.waitUntil(
         caches.keys().then((cacheNames) => Promise.all(
