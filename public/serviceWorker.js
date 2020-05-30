@@ -1,8 +1,6 @@
 const huyCache = "ehemhuy";
 const assets = [
-  "/",
-  "/index.html",
-  "/css/style.css",
+  "index.html"
 ];
 
 self.addEventListener("install", installEvent => {

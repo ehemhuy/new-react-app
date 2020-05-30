@@ -13,7 +13,6 @@ function App() {
     }
   }
   return (
-   
     <div className="main">
       <h2>Corona</h2>
       <input className="input form-control"
