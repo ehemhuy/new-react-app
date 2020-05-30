@@ -1,6 +1,7 @@
 const huyCache = "ehemhuy";
 const assets = [
-  "index.html"
+  "index.html",
+  "offline.html"
 ];
 
 const self = this
@@ -16,7 +17,7 @@ self.addEventListener("fetch", fetchEvent => {
   fetchEvent.respondWith(
     caches.match(fetchEvent.request).then(res => {
       return res || fetch(fetchEvent.request)
-       .catch(() => caches.match('index.html'))
+       .catch(() => caches.match('offline.html'))
     })
   );
 });
