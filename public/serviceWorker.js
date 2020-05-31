@@ -8,7 +8,7 @@ const assets = [
   "/offline/4.png",
   "/offline/5.png",
   "/offline/6.png",
-  "/offline/bg.png",
+  "/offline/bg.png"
 ];
 
 const self = this
