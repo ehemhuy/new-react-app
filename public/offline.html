@@ -4,21 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>No Internet</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
 </head>
-<body>
-    <h2>Bạn đang offline, hãy kết nối với internet để tiếp tục</h2>
-    <hr>
-<h3>Béo vì phồng mang trợn mắt nhiều</h3>
-
-<p>Cậu con trai đi trại du lịch về, bà mẹ vui mừng nói:
-
-- Má con phính hẳn ra đấy. Chắc ở đó họ cho ăn uống tốt lắm.
-
-- Không phải tại ăn uống đâu mẹ ạ!
-
-- Thế thì tại sao?
-
-- Vì tối nào trước khi đi ngủ con cũng phải thổi đệm cao su đấy!
-</p>
+<body id="body">
+    <h2>Bạn đang offline, hãy kết nối với internet để tiếp tục</h2><br>
+<div id="json"></div>
 </body>
+<script>
+    document.getElementById('body').onload = async () => {
+        const {data} = await axios.get('https://api.covid19api.com/summary')
+        for ( var i=0; i<= data.Countries.length; i++){
+            var x = document.createElement("P");   
+            var x1 = document.createElement("P");  
+            var x2 = document.createElement("P");     
+            var x3 = document.createElement("P");              
+            var t = document.createTextNode(`Country: ${data.Countries[i].Country}`); 
+            var t1 = document.createTextNode(`Total confirmed: ${data.Countries[i].TotalConfirmed}`);
+            var t2 = document.createTextNode(`Total deaths: ${data.Countries[i].TotalDeaths}`);
+            var t3 = document.createTextNode(`Total recovered: ${data.Countries[i].TotalRecovered}`);   
+            x.appendChild(document.createElement("hr"))
+            x.appendChild(t);
+            x1.appendChild(t1)
+            x2.appendChild(t2)
+            x3.appendChild(t3) 
+            x.appendChild(x1)
+            x1.appendChild(x2)
+            x2.appendChild(x3)                                       
+            document.body.appendChild(x);
+        }
+        
+    }
+
+</script>
 </html>
