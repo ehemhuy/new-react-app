@@ -2,9 +2,7 @@ const huyCache = "ehemhuy";
 const assets = [
   "/",
   "/index.html",
-  "/offline.html",
- 
-  "/offline/bg.png"
+  "/offline.html"
 ];
 
 const self = this
