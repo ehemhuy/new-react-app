@@ -1,1 +1,21 @@
-{"table":[{"id":1,"square":2}]}
+{
+    "name": "Huy's PWA",
+    "short_name": "Huy's PWA",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#fdfdfd",
+    "theme_color": "#141517",
+    "orientation": "portrait-primary",
+    "icons": [
+      {
+        "src": "/log192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "/logo512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ]
+  }
