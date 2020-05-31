@@ -1,8 +1,7 @@
 const huyCache = "ehemhuy";
 const assets = [
-  "/",
-  "/index.html",
-  "/offline.html"
+  "index.html",
+  "offline.html"
 ];
 
 const self = this
