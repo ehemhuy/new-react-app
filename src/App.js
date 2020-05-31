@@ -22,7 +22,7 @@ function App() {
         onKeyPress={search}
       ></input>
     
-      <div className="result">
+     <div className="result">
          <div className="countryInfo">Đất nước: {res.c} <img style={{height: 32}} alt="" src={`https://www.countryflags.io/${res.countryCode}/flat/64.png`}></img></div>
          <p>Thời gian cập nhật gần nhất: {res.time}</p>
         <p>Tổng số ca nhiễm: {res.total}</p>  
